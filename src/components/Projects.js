@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useScroll } from "framer-motion";
+import { TypeAnimation } from "react-type-animation";
 
 const projects = [
   {
@@ -8,14 +9,14 @@ const projects = [
     description: "This project tackles the challenge of efficiently creating study materials by allowing students to quickly transform their extensive syllabi into tailored learning aids: get either concise, AI-generated PDF notes for quick revision, or expertly curated YouTube playlists for dynamic, visual learning journeys.",
     img: "assets/learn-assist.jpg",
     tech: ["Next.js", "TailwindCSS", "React.js", "REST API", "App Routing", "Tailwind CSS"],
-    link: "learn-assist.vercel.app",
+    link: "https://github.com/GSMCodes/learn-assist",
   },
   {
     name: "Stock-Analyzer",
     description: " Stock Market Analysis Dashboard built using Python, Streamlit, and MySQL. It allows users to fetch stock price data using the yfinance API, store it in a MySQL database, and visualize the data with interactive charts and tables.",
     img: "assets/stock.png",
     tech: ["Python", "MySQL", "StreamLit", "API","Pandas", "Matplotlib"],
-    link: "https://github.com/GSMCodes/StockAnalyzer",
+    link: "https://github.com/GSMCodes/StockAnalyser",
   },
   {
     name: "Sort-It-Up",
@@ -57,13 +58,13 @@ const Projects = () => {
   }, [isPaused]);
 
   return (
-    <div className="project relative h-screen w-screen text-[#31363F] py-6">
+    <div className="project relative h-screen w-screen text-[#0f1115] py-6">
       <motion.h1
         initial={{ scale: 0, opacity: 0, y: "-50%" }}
         whileInView={{ scale: 1, opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="mr-5 text-6xl font-bold float-right tracking-tighter"
+        className="mr-5 text-6xl font-extrabold float-right tracking-tighter"
         style={{ fontFamily: "var(--font-saatliches)" }}
       >
         PROJECTS

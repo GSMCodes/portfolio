@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react"
 import Image from "next/image"
 import Projects from "@/components/Projects"
 import Skills from "@/components/Skills"
+import About from "@/components/About"
 
 
 export default function Home() {
@@ -61,7 +62,7 @@ export default function Home() {
       </div>
       <div className="h-screen w-screen flex justify-center items-center gap-0 flex-col">
         <motion.div
-          className="box w-[88%] h-[84%] bg-[#31363F] rounded-xl shadow-xl shadow-slate-500 flex"
+          className="box w-[88%] h-[84%] bg-[#0f1115] rounded-xl shadow-xl shadow-slate-500 flex"
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.3, delay:0.6, ease: [0, 0.71, 0.2, 1.01] }}
@@ -81,17 +82,16 @@ export default function Home() {
       transition={{ delay: 3 }}
       className="rightWala w-0 md:w-[40%] h-full flex flex-col justify-center items-center gap-10 px-10 py-33"
     >
-      <div className="compScreen h-48 w-[70%] py-1 rounded-lg border-6 border-[#F2EFE7] text-[#F2EFE7] hover:shadow-md hover:shadow-stone-500 flex flex-col items-center justify-between transition-all duration-300">
+      <div className="compScreen h-36 w-[70%] py-1 rounded-sm border-6  border-[#F2EFE7] text-[#F2EFE7] hover:shadow-md hover:shadow-stone-500 flex flex-col items-center justify-center transition-all duration-300">
         <h5
-          className="text-xl hover:cursor-default mt-18 "
+          className="text-xl hover:cursor-default"
           style={{ fontFamily: "var(--font-rubik)" }}
         >
           {hoverText}
         </h5>
-        <h6 className="info text-xs tracking-tighter font-light">Click on the icon to access the profile</h6>
       </div>
 
-      <div className="keyBoard h-12 w-[80%] rounded-lg border-2 border-[#F2EFE7] hover:bg-[#F2EFE7] hover:shadow-md hover:shadow-stone-500 flex justify-around">
+      <div className="keyBoard h-12 w-[80%] rounded-lg border-2 border-[#F2EFE7] bg-[#F2EFE7] hover:shadow-md hover:shadow-stone-500 flex justify-around">
         {icons.map((icon, index) => (
           <div
             key={index}
@@ -109,6 +109,8 @@ export default function Home() {
       </div>
       <Projects/>
       <Skills />
+      <About />
+      
     </div>
   )
 }

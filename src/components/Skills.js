@@ -36,14 +36,14 @@ const Skills = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <div className="skill relative h-screen w-screen text-[#31363F] py-6">
+    <div className="skill relative h-screen w-screen text-[#0f1115] py-6 mt-5">
       {/* Heading */}
       <motion.h1
         initial={{ scale: 0, opacity: 0, y: "-50%" }}
         whileInView={{ scale: 1, opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="mr-5 text-6xl font-bold float-right tracking-tighter"
+        className="mr-5 text-6xl font-extrabold float-right tracking-tighter"
         style={{ fontFamily: "var(--font-saatliches)" }}
       >
         SKILLS
