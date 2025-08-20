@@ -5,7 +5,15 @@ import { Menu, X } from "lucide-react"
 import Image from "next/image"
 
 export default function Home() {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
+  const [hoverText, setHoverText] = useState("Welcome to my portfolio!");
+
+  const icons = [
+    { src: "/assets/mail.svg", alt: "gurvanshsingh348@gmail.com",},
+    { src: "/assets/x.svg", alt: "Gurvansh Singh" },
+    { src: "/assets/gh.svg", alt: "GSMCodes" },
+    { src: "/assets/leetcode.svg", alt: "GurvanshSingh" },
+  ];
 
   return (
     <div className="w-screen">
@@ -27,15 +35,15 @@ export default function Home() {
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: -200, opacity: 0 }}
               transition={{ type: "spring", stiffness: 200, damping: 20 }}
-              className="absolute top-12 left-0 w-72 h-80 bg-blue-700 rounded-xl shadow-lg p-2 flex flex-col items-center justify-center"
+              className="absolute top-12 left-0 w-72 h-80 bg-[#31363F] rounded-xl shadow-lg p-2 flex flex-col items-center justify-center"
               onMouseEnter={() => setOpen(true)}
               onMouseLeave={() => setOpen(false)}
             >
-              <ul className="space-y-2">
-                <li className="hover:bg-amber-200 p-2 rounded">Home</li>
-                <li className="hover:bg-amber-200 p-2 rounded">About</li>
-                <li className="hover:bg-amber-200 p-2 rounded">Projects</li>
-                <li className="hover:bg-amber-200 p-2 rounded">Contact</li>
+              <ul className="space-y-2 text-[#D4C9BE]">
+                <li className="hover:bg-[#D4C9BE] p-2 rounded text-2xl tracking-wide hover:text-black hover:cursor-default text-center" style={{fontFamily:"var(--font-staatliches)"}}>Home</li>
+                <li className="hover:bg-[#D4C9BE] p-2 rounded text-2xl tracking-wide hover:text-black hover:cursor-default text-center" style={{fontFamily:"var(--font-staatliches)"}}>About</li>
+                <li className="hover:bg-[#D4C9BE] p-2 rounded text-2xl tracking-wide hover:text-black hover:cursor-default text-center" style={{fontFamily:"var(--font-staatliches)"}}>Projects</li>
+                <li className="hover:bg-[#D4C9BE] p-2 rounded text-2xl tracking-wide hover:text-black hover:cursor-default text-center" style={{fontFamily:"var(--font-staatliches)"}}>Contact</li>
               </ul>
             </motion.div>
           )}
@@ -55,18 +63,36 @@ export default function Home() {
               <button className="px-8 py-4 border-2 rounded-xl text-xl tracking-widest hover:text-[#31363F] hover:bg-[#F2EFE7] transition ease-in duration-200 hover:border-[#F2EFE7] hover:shadow hover:shadow-stone-500">Contact Me</button>
             </div>
           </motion.div>
-          <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:2}} className="rightWala w-0 md:w-[40%] h-full flex flex-col justify-center items-center gap-10 px-10 py-33">
-            <div className="h-48 w-[80%] rounded-lg  border-2 border-[#F2EFE7] hover:shadow-md hover:shadow-stone-500 flex items-center justify-center">
-              <h5 className="text-xl text-[#F2EFE7] tracking-widest" style={{fontFamily:"var(--font-staatliches)"}}>Welcome to my website!</h5>
-            </div>
-            <div className="h-16 w-[90%] rounded-lg  border-2 border-[#F2EFE7] hover:shadow-md hover:shadow-stone-500 flex justify-around">
-              {/*mail, x account, leetcode, github*/}
-              <div className="h-[150%] w-[25%] hover:mt-[-2rem] transition-all duration-200 flex justify-center items-start pt-1"><Image src="assets/mail.svg" width={50} height={60} alt="mail-icon"/></div>
-              <div className="h-[150%] w-[25%] hover:mt-[-2rem] transition-all duration-200 flex justify-center items-start pt-1"><Image src="assets/x.svg" width={50} height={60} alt="x-icon"/></div>
-              <div className="h-[150%] w-[25%] hover:mt-[-2rem] transition-all duration-200 flex justify-center items-start pt-1"><Image src="assets/gh.svg" width={50} height={60} alt="github-icon"/></div>
-              <div className="h-[150%] w-[25%] hover:mt-[-2rem] transition-all duration-200 flex justify-center items-start pt-1"><Image src="assets/leetcode.svg" width={50} height={58} alt="leetcode-icon"/></div>
-            </div>
-          </motion.div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 3 }}
+      className="rightWala w-0 md:w-[40%] h-full flex flex-col justify-center items-center gap-10 px-10 py-33"
+    >
+      <div className="compScreen h-48 w-[70%] py-1 rounded-lg border-6 border-[#F2EFE7] text-[#F2EFE7] hover:shadow-md hover:shadow-stone-500 flex flex-col items-center justify-between transition-all duration-300">
+        <h5
+          className="text-xl hover:cursor-default mt-18 "
+          style={{ fontFamily: "var(--font-rubik)" }}
+        >
+          {hoverText}
+        </h5>
+        <h6 className="info text-xs tracking-tighter font-light">Click on the icon to access the profile</h6>
+      </div>
+
+      <div className="keyBoard h-12 w-[80%] rounded-lg border-2 border-[#F2EFE7] hover:bg-[#F2EFE7] hover:shadow-md hover:shadow-stone-500 flex justify-around">
+        {icons.map((icon, index) => (
+          <div
+            key={index}
+            className="h-[150%] w-[22%] hover:mt-[-2rem] transition-all duration-200 flex justify-center items-start pt-1"
+            onMouseEnter={() => setHoverText(icon.alt)}
+            onMouseLeave={() => setHoverText("Welcome to my website!")}
+          >
+            <Image src={icon.src} width={38} height={50} alt={icon.alt} />
+          </div>
+        ))}
+      </div>
+    </motion.div>
+
         </motion.div>
       </div>
     </div>
