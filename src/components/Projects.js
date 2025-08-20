@@ -4,21 +4,21 @@ import { motion, useScroll } from "framer-motion";
 
 const projects = [
   {
-    name: "LearnAssist",
+    name: "Learn-Assist",
     description: "This project tackles the challenge of efficiently creating study materials by allowing students to quickly transform their extensive syllabi into tailored learning aids: get either concise, AI-generated PDF notes for quick revision, or expertly curated YouTube playlists for dynamic, visual learning journeys.",
     img: "assets/learn-assist.jpg",
     tech: ["Next.js", "TailwindCSS", "React.js", "REST API", "App Routing", "Tailwind CSS"],
     link: "learn-assist.vercel.app",
   },
   {
-    name: "StockAnalyzer",
+    name: "Stock-Analyzer",
     description: " Stock Market Analysis Dashboard built using Python, Streamlit, and MySQL. It allows users to fetch stock price data using the yfinance API, store it in a MySQL database, and visualize the data with interactive charts and tables.",
     img: "assets/stock.png",
     tech: ["Python", "MySQL", "StreamLit", "API","Pandas", "Matplotlib"],
     link: "https://github.com/GSMCodes/StockAnalyzer",
   },
   {
-    name: "SortItUp",
+    name: "Sort-It-Up",
     description: "The Sorting Algorithm Visualizer is an interactive web application designed to help users understand how various sorting algorithms work. It provides a dynamic visualization of the sorting process, allowing users to see elements being compared and moved in real-time. Additionally, it displays the pseudocode for the selected algorithm, enhancing the learning experience.",
     img: "assets/sort.gif",
     tech: ["HTML", "CSS", "JS", "DSA", "Canvas"],
@@ -32,7 +32,7 @@ const projects = [
     link: "https://github.com/GSMCodes/portfolio",
   },
     {
-    name: "PostsApp",
+    name: "Posts-App",
     description: "A full-stack blog-style app where users can sign up, log in, create posts, like posts, and edit their own posts..",
     img: "assets/posts.png",
     tech: ["Express JS", "Node JS", "EJS", "MongoDB", "JWT", "Cookies", "bcrypt", "Tailwind CSS"],
@@ -63,7 +63,7 @@ const Projects = () => {
         whileInView={{ scale: 1, opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="mr-5 mt-[-1rem] text-7xl font-bold float-right tracking-tighter"
+        className="mr-5 text-6xl font-bold float-right tracking-tighter"
         style={{ fontFamily: "var(--font-saatliches)" }}
       >
         PROJECTS
@@ -119,7 +119,7 @@ const Projects = () => {
             {projects[currentIndex].tech.map((t, i) => (
               <span
                 key={i}
-                className="bg-[#31363F] text-white px-3 py-1 rounded-full text-sm shadow-md"
+                className="bg-[#31363F] text-white px-3 py-1 rounded-full text-sm shadow-md hover:scale-110 hover:cursor-default"
               >
                 {t}
               </span>
