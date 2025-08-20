@@ -63,7 +63,7 @@ const Projects = () => {
         whileInView={{ scale: 1, opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="sticky top-3 right-6 text-7xl font-bold float-right tracking-tighter"
+        className="mr-5 mt-[-1rem] text-7xl font-bold float-right tracking-tighter"
         style={{ fontFamily: "var(--font-saatliches)" }}
       >
         PROJECTS

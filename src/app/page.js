@@ -4,6 +4,7 @@ import { useState, useRef } from "react"
 import { Menu, X } from "lucide-react" 
 import Image from "next/image"
 import Projects from "@/components/Projects"
+import Skills from "@/components/Skills"
 
 
 export default function Home() {
