@@ -28,39 +28,8 @@ export default function Home() {
 
   return (
     <div className="w-screen">
-      <div className="fixed top-2 left-2 sm:left-6 sm:top-6 z-50">
-        <motion.button
-          onClick={() => setOpen(!open)}
-          onMouseEnter={() => setOpen(true)}
-          onMouseLeave={() => setOpen(false)}
-          className="p-2 bg-gray-800 rounded-full text-white"
-          initial={{opacity:0}} animate={{opacity:1}} transition={{delay:2}}
-        >
-          {open ? <X size={24} /> : <Menu size={24} />}
-        </motion.button>
-
-        <AnimatePresence>
-          {open && (
-            <motion.div
-              initial={{ x: -200, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: -200, opacity: 0 }}
-              transition={{ type: "spring", stiffness: 200, damping: 20 }}
-              className="absolute top-12 left-0 w-72 h-80 bg-[#31363F] rounded-xl shadow-lg p-2 flex flex-col items-center justify-center"
-              onMouseEnter={() => setOpen(true)}
-              onMouseLeave={() => setOpen(false)}
-            >
-              <ul className="space-y-2 text-[#D4C9BE]">
-                <li className="hover:bg-[#D4C9BE] p-2 rounded text-2xl tracking-wide hover:text-black hover:cursor-default text-center" style={{fontFamily:"var(--font-staatliches)"}}>Home</li>
-                <li className="hover:bg-[#D4C9BE] p-2 rounded text-2xl tracking-wide hover:text-black hover:cursor-default text-center" style={{fontFamily:"var(--font-staatliches)"}}>About</li>
-                <li className="hover:bg-[#D4C9BE] p-2 rounded text-2xl tracking-wide hover:text-black hover:cursor-default text-center" style={{fontFamily:"var(--font-staatliches)"}}>Projects</li>
-                <li className="hover:bg-[#D4C9BE] p-2 rounded text-2xl tracking-wide hover:text-black hover:cursor-default text-center" style={{fontFamily:"var(--font-staatliches)"}}>Contact</li>
-              </ul>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-      <div className="h-screen w-screen flex justify-center items-center gap-0 flex-col">
+      
+      <div id="home" className="h-screen w-screen flex justify-center items-center gap-0 flex-col">
         <motion.div
           className="box w-[88%] h-[84%] bg-[#0f1115] rounded-xl shadow-xl shadow-slate-500 flex"
           initial={{ scale: 0 }}
@@ -107,9 +76,9 @@ export default function Home() {
 
         </motion.div>
       </div>
-      <Projects/>
-      <Skills />
-      <About />
+      <Projects id="projects"/>
+      <Skills id="skills"/>
+      <About id="about"/>
       
     </div>
   )
