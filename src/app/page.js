@@ -1,12 +1,21 @@
 "use client"
-import { motion, AnimatePresence,} from "framer-motion"
-import { useState } from "react"
+import { motion, AnimatePresence, useScroll, useTransform, useSpring} from "framer-motion"
+import { useState, useRef } from "react"
 import { Menu, X } from "lucide-react" 
 import Image from "next/image"
+import Projects from "@/components/Projects"
+
 
 export default function Home() {
   const [open, setOpen] = useState(false);
   const [hoverText, setHoverText] = useState("Welcome to my portfolio!");
+  const targetRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({target:targetRef, offset: ["start end", "end start"]});
+
+  const scale = useTransform(scrollYProgress, [0, 5], [1, 0.5]);
+
+  const smoothScale = useSpring(scale, { stiffness: 100, damping: 20 });
 
   const icons = [
     { src: "/assets/mail.svg", alt: "gurvanshsingh348@gmail.com",},
@@ -55,6 +64,8 @@ export default function Home() {
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.3, delay:0.6, ease: [0, 0.71, 0.2, 1.01] }}
+          ref={targetRef}
+          style={{ scale: smoothScale }}
         >
           <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:2}} className="leftWala w-full md:w-[60%] h-full px-10 py-16 sm:px-6 sm:py-26 text-[#F2EFE7]">
             <h1 className="text-7xl sm:text-9xl" style={{fontFamily:"var(--font-staatliches)"}}>Gurvansh singh</h1>
@@ -95,6 +106,7 @@ export default function Home() {
 
         </motion.div>
       </div>
+      <Projects/>
     </div>
   )
 }
